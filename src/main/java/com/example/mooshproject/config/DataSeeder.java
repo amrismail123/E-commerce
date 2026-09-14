@@ -5,8 +5,10 @@ import com.example.mooshproject.entity.Product;
 import com.example.mooshproject.repository.CategoryRepository;
 import com.example.mooshproject.repository.ProductRepository;
 import lombok.AllArgsConstructor;
+import org.jspecify.annotations.NonNull;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -18,7 +20,8 @@ public class DataSeeder implements CommandLineRunner {
     private final ProductRepository productRepository;
 
     @Override
-    public void run(String... args) {
+    @Transactional
+    public void run(String @NonNull ... args) {
 
         // Prevent duplicate seed data
         if (categoryRepository.count() > 0) {
