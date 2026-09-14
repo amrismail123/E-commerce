@@ -1,0 +1,7 @@
+package com.example.mooshproject.repository;
+
+import com.example.mooshproject.entity.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+}
